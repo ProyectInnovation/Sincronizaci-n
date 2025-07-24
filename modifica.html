@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Modificar - Sincronización</title>
+
+  <script src="js/registraServiceWorker.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#fffbfe">
+  <link rel="icon" sizes="48x48" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <script src="ungap/custom-elements.js"></script>
+
+  <script type="module" src="js/configura.js"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/transicion_pestanas.css">
+
+  <link rel="stylesheet" href="css/dark-hc.css">
+  <link rel="stylesheet" href="css/dark-mc.css">
+  <link rel="stylesheet" href="css/dark.css">
+  <link rel="stylesheet" href="css/light-hc.css">
+  <link rel="stylesheet" href="css/light-mc.css">
+  <link rel="stylesheet" href="css/light.css">
+
+
+  <script type="module" src="js/configura.js"></script>
+  <script type="module" src="lib/js/muestraError.js"></script>
+  <script type="module" src="lib/js/muestraObjeto.js"></script>
+  <script type="module" src="js/bd/juegoBusca.js"></script>
+  <script type="module" src="js/bd/juegoElimina.js"></script>
+  <script type="module" src="js/bd/juegoModifica.js"></script>
+
+  <script>
+    // Obtiene los parámetros de la página.
+    const parametros = new URL(location.href).searchParams
+    const paramId = parametros.get("id")
+  </script>
+
+</head>
+
+<body onload="
+  if (paramId !== null) {
+    videojuegoBusca(paramId)
+      .then(videojuego => {
+        if (videojuego === undefined) throw new Error('Videojuego no encontrado.')
+        muestraObjeto(forma, {
+          nombre: { value: videojuego.JUE_NOMBRE },
+          genero: { value: videojuego.JUE_GENERO },
+          plataforma: { value: videojuego.JUE_PLATAFORMA }
+        })
+      })
+      .catch(muestraError)
+  }
+">
+
+
+  <form id="forma" onsubmit="
+  event.preventDefault()
+  if (paramId !== null) {
+    const JUE_ID = paramId
+    const JUE_NOMBRE = forma.nombre.value.trim()
+    // Agrega más campos si tienes en el formulario:
+    const JUE_GENERO = forma.genero.value.trim()
+    const JUE_PLATAFORMA = forma.plataforma.value.trim()
+
+    const modelo = { JUE_ID, JUE_NOMBRE , JUE_GENERO, JUE_PLATAFORMA }
+    videojuegoModifica(modelo)
+      .then(() => location.href = 'index.html')
+      .catch(muestraError)
+  }
+">
+
+    <md-top-app-bar>
+      <center>
+        <h1>Modificar Videojuego</h1>
+      </center>
+    </md-top-app-bar>
+
+    <main>
+      <p>
+        <button class="md-filled-button" type="button" onclick="location.href='index.html'">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">cancel</span>
+          <span style="vertical-align: middle;">Cancelar</span>
+        </button>
+
+        <button class="md-filled-button" type="submit">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">save</span>
+          <span style="vertical-align: middle;">Guardar</span>
+        </button>
+
+        <button class="md-filled-button" type="button" onclick="
+    if (paramId !== null && confirm('Confirma la eliminación')) {
+      juegoElimina(paramId)
+        .then(() => location.href = 'index.html')
+        .catch(muestraError)
+    }">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">delete</span>
+          <span style="vertical-align: middle;">Borrar</span>
+        </button>
+      </p>
+
+
+      <input name="id" type="hidden">
+
+      <p>
+      <p>Nombre del videojuego</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="nombre">
+        <span>Nombre del videojuego *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Genero del videojuego</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="genero">
+        <span>Genero del videojuego *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Plataforma</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="plataforma">
+        <span>Plataforma *</span>
+        <small>Obligatorio</small>
+      </label>
+      </p>
+  </form>
+
+  </main>
+  <nav-drw id="nav"></nav-drw>
+
+</body>
+
+</html>

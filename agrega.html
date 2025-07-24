@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Agregar - Sincronización</title>
+
+  <script src="js/registraServiceWorker.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#fffbfe">
+  <link rel="icon" sizes="48x48" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <script src="ungap/custom-elements.js"></script>
+
+  <script type="module" src="js/configura.js"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/transicion_pestanas.css">
+
+  <link rel="stylesheet" href="css/dark-hc.css">
+  <link rel="stylesheet" href="css/dark-mc.css">
+  <link rel="stylesheet" href="css/dark.css">
+  <link rel="stylesheet" href="css/light-hc.css">
+  <link rel="stylesheet" href="css/light-mc.css">
+  <link rel="stylesheet" href="css/light.css">
+
+  <script type="module" src="js/configura.js"></script>
+  <script type="module" src="lib/js/muestraError.js"></script>
+  <script type="module" src="js/bd/juegoAgrega.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <form id="forma" onsubmit="
+  event.preventDefault();
+  const JUE_NOMBRE = forma.nombre.value.trim();
+  const JUE_GENERO = forma.genero.value.trim();
+  const JUE_PLATAFORMA = forma.plataforma.value.trim();
+  const modelo = { JUE_NOMBRE, JUE_GENERO, JUE_PLATAFORMA };
+  videojuegoAgrega(modelo)
+    .then(() => location.href = 'index.html')
+    .catch(muestraError);
+">
+
+    <md-top-app-bar>
+      <center>
+        <h1>Agregar Videojuego</h1>
+      </center>
+    </md-top-app-bar>
+
+
+    <main>
+      <p>
+        <button class="md-filled-button" type="submit">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">add</span>
+          <span style="vertical-align: middle;">Agregar</span>
+        </button>
+
+        <button class="md-filled-button" type="button" onclick="location.href='index.html'">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">cancel</span>
+          <span style="vertical-align: middle;">Cancelar</span>
+        </button>
+
+      </p>
+
+      <p>
+      <p>Nombre del videojuego</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="nombre">
+        <span>Nombre del videojuego *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Genero del videojuego</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="genero">
+        <span>Genero del videojuego *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Plataforma</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del videojuego*" name="plataforma">
+        <span>Plataforma *</span>
+        <small>Obligatorio</small>
+      </label>
+      </p>
+
+
+    </main>
+
+  </form>
+
+  <nav-drw id="nav"></nav-drw>
+
+</body>
+
+</html>
