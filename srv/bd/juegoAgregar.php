@@ -18,9 +18,10 @@ require_once __DIR__ . "/../modelo/validaId.php";
  */
 function juegoAgrega(array $modelo)
 {
-    validaId($modelo[JUE_ID]);
-    validaNombre($modelo[JUE_NOMBRE]);
-    validaNombre($modelo[JUE_GENERO]);
-    validaNombre($modelo[JUE_PLATAFORMA]);
+    validaId($modelo["JUE_ID"]);
+    validaNombre($modelo["JUE_NOMBRE"]);
+    validaNombre($modelo["JUE_GENERO"]);
+    validaNombre($modelo["JUE_PLATAFORMA"]);
     insert(pdo: Bd::pdo(), into: VIDEOJUEGO, values: $modelo);
 }
+
