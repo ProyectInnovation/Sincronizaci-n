@@ -146,7 +146,6 @@ const ARCHIVOS = [
   "material-tokens/css/typography.css",
   "material-tokens/css/theme/dark.css",
   "material-tokens/css/theme/light.css",
-  'srv/srvbd.db',
   "ungap/custom-elements.js",
   "/"
 ]
