@@ -58,7 +58,7 @@ const ARCHIVOS = [
   "js/modelo/VIDEOJUEGO.js",
   "js/modelo/validaId.js",
   "js/modelo/validaNombre.js",
-  "js/modelo/validaJuego.js",
+  "js/modelo/validajuego.js",
   "js/modelo/validaJuegos.js",
   "lib/js/bdConsulta.js",
   "lib/js/bdEjecuta.js",
