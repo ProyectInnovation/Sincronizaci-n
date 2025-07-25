@@ -95,7 +95,6 @@ const ARCHIVOS = [
   "js/nav-drw.js",
   "js/nav-tab-fixed.js",
   "js/nav-tab-scrollable.js",
-  "js/registraServiceWorker.js",
   "lib/css/material-symbols-outlined.css",
   "lib/css/md-cards.css",
   "lib/css/md-fab-primary.css",
@@ -119,12 +118,7 @@ const ARCHIVOS = [
   "lib/fonts/roboto-v32-latin-regular.woff2",
   "lib/js/abreElementoHtml.js",
   "lib/js/cierraElementoHtmo.js",
-  "lib/js/exportaAHtml.js",
-  "lib/js/getAttribute.js",
-  "lib/js/htmlentities.js",
-  "lib/js/muestraError.js",
   "lib/js/muestraTextoDeAyuda.js",
-  "lib/js/ProblemDetails.js",
   "lib/js/querySelector.js",
   "lib/js/resaltaSiEstasEn.js",
   "lib/js/const/ES_APPLE.js",
@@ -148,7 +142,8 @@ const ARCHIVOS = [
   "material-tokens/css/theme/light.css",
   "ungap/custom-elements.js",
   "/"
-]
+];
+
 
 // Verifica si el código corre dentro de un service worker.
 if (self instanceof ServiceWorkerGlobalScope) {
