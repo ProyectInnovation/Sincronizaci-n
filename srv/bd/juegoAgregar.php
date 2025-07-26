@@ -11,7 +11,7 @@ require_once __DIR__ . "/../modelo/validaId.php";
  *   JUE_ID: string,
  *   JUE_NOMBRE: string,
  *   JUE_GENERO: string,
- *   JUE_PLATFORMA: string,
+ *   JUE_PLATAFORMA: string,
  *   JUE_MODIFICACION: int,
  *   JUE_ELIMINADO: int
  *  } $modelo

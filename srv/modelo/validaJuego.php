@@ -9,13 +9,12 @@ function validaJuego($objeto)
 {
     $objeto = validaJson($objeto);
 
-    if (!isset($objeto->JUE_ID) || !is_string($objeto->JUE_ID)) {
+    if (!isset($objeto->JUE_ID) || !is_string($objeto->JUE_ID))
         throw new ProblemDetails(
             status: BAD_REQUEST,
             title: "El id debe ser texto.",
-            type: "/error/idincorrecto.html"
+            type: "/error/idincorrecto.html",
         );
-    }
 
     if (!isset($objeto->JUE_NOMBRE) || !is_string($objeto->JUE_NOMBRE)) {
         throw new ProblemDetails(
@@ -48,7 +47,7 @@ function validaJuego($objeto)
             type: "/error/modificacionincorrecta.html"
         );
     }
-    $objeto->JUE_MODIFICACION = (int)$objeto->JUE_MODIFICACION;
+    $objeto->JUE_MODIFICACION = (int) $objeto->JUE_MODIFICACION;
 
     if (!isset($objeto->JUE_ELIMINADO) || !is_numeric($objeto->JUE_ELIMINADO)) {
         throw new ProblemDetails(
@@ -57,7 +56,7 @@ function validaJuego($objeto)
             type: "/error/eliminadoincorrecto.html"
         );
     }
-    $objeto->JUE_ELIMINADO = (int)$objeto->JUE_ELIMINADO;
+    $objeto->JUE_ELIMINADO = (int) $objeto->JUE_ELIMINADO;
 
     return [
         JUE_ID => $objeto->JUE_ID,
