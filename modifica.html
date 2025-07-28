@@ -94,11 +94,11 @@
         </button>
 
         <button class="md-filled-button" type="button" onclick="
-    if (paramId !== null && confirm('Confirma la eliminación')) {
-      juegoElimina(paramId)
-        .then(() => location.href = 'index.html')
-        .catch(muestraError)
-    }">
+ if (paramId !== null && confirm('Confirma la eliminación')) {
+  videojuegoElimina(paramId)
+   .then(() => location.href = 'index.html')
+   .catch(muestraError)
+ }">
           <span class="material-symbols-outlined" style="vertical-align: middle;">delete</span>
           <span style="vertical-align: middle;">Borrar</span>
         </button>
