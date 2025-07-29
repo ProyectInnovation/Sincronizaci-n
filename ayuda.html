@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light dark">
 
 <head>
 
@@ -16,23 +16,17 @@
 
  <script type="module" src="js/configura.js"></script>
  <link rel="stylesheet" href="css/estilos.css">
- <link rel="stylesheet" href="css/transicion_completa.css">
- 
- <link rel="stylesheet" href="css/dark-hc.css">
- <link rel="stylesheet" href="css/dark-mc.css">
- <link rel="stylesheet" href="css/dark.css">
- <link rel="stylesheet" href="css/light-hc.css">
- <link rel="stylesheet" href="css/light-mc.css">
- <link rel="stylesheet" href="css/light.css">
+ <link rel="stylesheet" href="css/transicion_pestanas.css">
+ <link rel="expect" blocking="render" href="#navtabfixed">
 
 </head>
 
 <body>
 
  <md-top-app-bar>
-<center>
+
   <h1>Ayuda</h1>
-</center>
+
  </md-top-app-bar>
 
   <nav-tab-fixed id="tab"></nav-tab-fixed>
@@ -46,7 +40,7 @@
      Título
     </span>
     <span class="supporting">
-     Geolocalización, Archivos y Cámara
+     Sincronización
     </span>
    </li>
    <li class="md-two-line">
@@ -54,7 +48,7 @@
      Descripción
     </span>
     <span class="supporting">
-     PWA de una página que permite el uso de GPS, cámara y subida de archivos.
+     Una página con una conexión a por medio de Sincronización
     </span>
    </li>
    <li class="md-two-line">
@@ -113,7 +107,7 @@
 
  </main>
 
-  <nav-drw id="nav"></nav-drw>
+ <nav-drw></nav-drw>
 
 </body>
 

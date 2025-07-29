@@ -77,31 +77,31 @@
 
     <md-top-app-bar>
       <center>
-        <h1>Modificar Videojuego</h1>
+        <h1>Modificar Juego</h1>
       </center>
     </md-top-app-bar>
 
     <main>
-      <p>
-        <button class="md-filled-button" type="button" onclick="location.href='index.html'">
-          <span class="material-symbols-outlined" style="vertical-align: middle;">cancel</span>
-          <span style="vertical-align: middle;">Cancelar</span>
-        </button>
+      
+      <button type="button" class="md-standard-icon-button" slot="action" title="Cancelar"
+        onclick="location.href='index.html'">
+        <span class="material-symbols-outlined">cancel</span>
+      </button>
 
-        <button class="md-filled-button" type="submit">
-          <span class="material-symbols-outlined" style="vertical-align: middle;">save</span>
-          <span style="vertical-align: middle;">Guardar</span>
-        </button>
+      <button type="submit" form="forma" class="md-standard-icon-button" slot="action" title="Guardar">
+        <span class="material-symbols-outlined">save</span>
+      </button>
 
-        <button class="md-filled-button" type="button" onclick="
- if (paramId !== null && confirm('Confirma la eliminación')) {
-  videojuegoElimina(paramId)
-   .then(() => location.href = 'index.html')
-   .catch(muestraError)
- }">
-          <span class="material-symbols-outlined" style="vertical-align: middle;">delete</span>
-          <span style="vertical-align: middle;">Borrar</span>
-        </button>
+      <button type="button" class="md-standard-icon-button" slot="action" title="Borrar" onclick="
+        if (paramId !== null && confirm('Confirma la eliminación')) {
+          videojuegoElimina(paramId)
+            .then(() => location.href = 'index.html')
+            .catch(muestraError);
+        }
+      ">
+        <span class="material-symbols-outlined">delete</span>
+      </button>
+      
       </p>
 
 
